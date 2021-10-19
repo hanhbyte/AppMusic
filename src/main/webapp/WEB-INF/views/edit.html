@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Customer</title>
+</head>
+<body>
+<form action="/edit" method="post" enctype="multipart/form-data" th:object="${editForm}">
+  <input type="hidden"  th:field="*{id}">
+  <label>NameMusic</label>
+  <input type="text"  th:field="*{name}">
+  <label>Author</label>
+  <input type="text"  th:field="*{author}">
+  <label>Category</label>
+  <input type="text"  th:field="*{category}">
+  <td>
+    <audio id="track" controls loop>
+      <source  th:src="@{'/image/' + ${editForm.music}}"type="audio/ogg">
+      <source th:src="@{'/image/' + ${editForm.music}}"type="audio/mpeg">
+      <p>Your browser does not support the audio element</p>
+    </audio>
+  </td>
+  <label> New Music</label>
+  <input type="file"  name="multipartFile">
+  <button type="submit">Edit</button>
+
+</form>
+</body>
+</html>
